@@ -15,6 +15,7 @@
 @property (weak) IBOutlet NSTextField *searchTags;
 @property (weak) IBOutlet NSTextField *logTextField;
 
+@property int endPoint;
 - (IBAction)startDownload:(id)sender;
 
 @end

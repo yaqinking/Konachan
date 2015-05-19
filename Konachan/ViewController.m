@@ -24,12 +24,10 @@
 }
 
 - (IBAction)startDownload:(id)sender {
-
     NSString *pageSize = [self.pageSize stringValue];
     NSString *pageNumber = [self.pageNumber stringValue];
     NSString *tags = [self.searchTags stringValue];
-    //    YaQinking How to use NSJSONSerialization
-    
+    [self.logTextField setStringValue:[NSString stringWithFormat:@"Start downloading %@ pictures",pageSize]];
     if ((pageSize != NULL) && (pageNumber != NULL) && (tags != NULL)) {
         NSString *strURL = [NSString stringWithFormat:@KONACHAN_POST_LIMIT_PAGE_TAGS,pageSize,pageNumber,tags];
         NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:strURL]];
@@ -51,7 +49,12 @@
                 return [docDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
             } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
                 NSLog(@"File downloaded to : %@",filePath);
-                [self.logTextField setStringValue:@"Downloading"];
+                [self.logTextField setStringValue:[NSString stringWithFormat:@"%i downloaded to %@",(self.endPoint +1),filePath]];
+                self.endPoint ++;
+                if (self.endPoint == sampleURLArr.count) {
+                    [self.logTextField setStringValue:@"All pictures downloaded to ~/Download/"];
+                    self.endPoint = 0;
+                }
             }];
             
             [downloadTask resume];

@@ -474,6 +474,7 @@
 				F4C453AD1AECCC3A00E9D353 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4C453AE1AECCC3A00E9D353 /* Build configuration list for PBXNativeTarget "KonachanTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +483,7 @@
 				F4C453B01AECCC3A00E9D353 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
