@@ -5,6 +5,8 @@ Download images from Konachan.com
 ## Usage
 ![Konachan](/Konachan.jpg)
 
+    Download pictures are saved to ~/Downloads/
+
 Name | Explain
 --- | ---
 Page Size | the number of images you want to download
