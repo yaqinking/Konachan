@@ -2,6 +2,17 @@
 
 Download images from Konachan.com
 
+# Insall
+If you are using [Homebrew Cask](http://caskroom.io/)
+
+```sh
+$ brew cask install konachan
+```
+
+Or
+
+Download from [releases](https://github.com/yaqinking/Konachan/releases) page
+
 ## Usage
 ![Konachan](/Konachan.jpg)
 
