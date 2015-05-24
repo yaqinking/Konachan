@@ -31,6 +31,10 @@
     if ((pageSize != NULL) && (pageNumber != NULL) && (tags != NULL)) {
         NSString *strURL = [NSString stringWithFormat:@KONACHAN_POST_LIMIT_PAGE_TAGS,pageSize,pageNumber,tags];
         NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:strURL]];
+        if (data.length == 0) {
+            [self.logTextField setStringValue:@"No more pictures"];
+            return;
+        }
         NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];//返回一個數組
         NSMutableArray *sampleURLArr = [[NSMutableArray alloc] init];
         for (NSDictionary *dict in jsonArr) {
@@ -52,7 +56,7 @@
                 [self.logTextField setStringValue:[NSString stringWithFormat:@"%i downloaded to %@",(self.endPoint +1),filePath]];
                 self.endPoint ++;
                 if (self.endPoint == sampleURLArr.count) {
-                    [self.logTextField setStringValue:@"All pictures downloaded to ~/Download/"];
+                    [self.logTextField setStringValue:@"All pictures downloaded to ~/Downloads/"];
                     self.endPoint = 0;
                 }
             }];
