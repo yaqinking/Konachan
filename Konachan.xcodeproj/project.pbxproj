@@ -109,8 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				F4C453B11AECCFFD00E9D353 /* KonachanAPI.h */,
-				F4C453901AECCC3A00E9D353 /* AppDelegate.h */,
-				F4C453911AECCC3A00E9D353 /* AppDelegate.m */,
 				F4C453951AECCC3A00E9D353 /* ViewController.h */,
 				F4C453961AECCC3A00E9D353 /* ViewController.m */,
 				F4C453981AECCC3A00E9D353 /* Images.xcassets */,
@@ -123,6 +121,8 @@
 		F4C4538E1AECCC3A00E9D353 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F4C453901AECCC3A00E9D353 /* AppDelegate.h */,
+				F4C453911AECCC3A00E9D353 /* AppDelegate.m */,
 				F4C453B21AECD02E00E9D353 /* AFNetworking */,
 				F4C4538F1AECCC3A00E9D353 /* Info.plist */,
 				F4C453931AECCC3A00E9D353 /* main.m */,

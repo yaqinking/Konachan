@@ -24,32 +24,36 @@
 }
 
 - (IBAction)startDownload:(id)sender {
-    NSString *pageSize = [self.pageSize stringValue];
+    NSString *pageSize   = [self.pageSize stringValue];
     NSString *pageNumber = [self.pageNumber stringValue];
-    NSString *tags = [self.searchTags stringValue];
+    NSString *tags       = [self.searchTags stringValue];
     [self.logTextField setStringValue:[NSString stringWithFormat:@"Start downloading %@ pictures",pageSize]];
     if ((pageSize != NULL) && (pageNumber != NULL) && (tags != NULL)) {
         NSString *strURL = [NSString stringWithFormat:@KONACHAN_POST_LIMIT_PAGE_TAGS,pageSize,pageNumber,tags];
-        NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:strURL]];
+        NSData *data     = [NSData dataWithContentsOfURL:[NSURL URLWithString:strURL]];
         if (data.length == 0) {
             [self.logTextField setStringValue:@"No more pictures"];
             return;
         }
-        NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];//返回一個數組
+        NSArray *jsonArr             = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];//返回一個數組
         NSMutableArray *sampleURLArr = [[NSMutableArray alloc] init];
         for (NSDictionary *dict in jsonArr) {
             NSLog(@"value -> %@",[dict valueForKey:@KONACHAN_DOWNLOAD_TYPE_FILE]);//根據 key 取出 dict 中的 value
             [sampleURLArr addObject:[dict valueForKey:@KONACHAN_DOWNLOAD_TYPE_FILE]];
         }
-        
-        
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        AFURLSessionManager *manager             = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
         for (NSString *url in sampleURLArr) {
             NSURL *sURL = [NSURL URLWithString:url];
             NSURLRequest *request = [NSURLRequest requestWithURL:sURL];
-            NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-                NSURL *docDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDownloadsDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+            NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request
+                                                                             progress:nil
+                                                                          destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+                NSURL *docDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDownloadsDirectory
+                                                                                inDomain:NSUserDomainMask
+                                                                       appropriateForURL:nil
+                                                                                  create:NO
+                                                                                   error:nil];
                 return [docDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
             } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
                 NSLog(@"File downloaded to : %@",filePath);

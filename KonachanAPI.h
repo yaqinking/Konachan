@@ -16,13 +16,13 @@
 //http://konachan.com/post.json?limit=20&page=2&tags=saenai_heroine_no_sodatekata
 
 //get 10 posted images default max=100 per page
-#define KONACHAN_POST_LIMIT_DEFAULT "http://konachan.com/post.json?limit=10"
+#define KONACHAN_POST_LIMIT_DEFAULT      "http://konachan.com/post.json?limit=10"
 
 //get 10 posted images set you want display page number
 #define KONACHAN_POST_LIMIT_DEFAULT_PAGE "http://konachan.com/post.json?limit=10&page=%i"
 
 //Download illustrate quality
-#define KONACHAN_DOWNLOAD_TYPE_SAMPLE "sample_url"
-#define KONACHAN_DOWNLOAD_TYPE_FILE "file_url"
+#define KONACHAN_DOWNLOAD_TYPE_SAMPLE  "sample_url"
 #define KONACHAN_DOWNLOAD_TYPE_PREVIEW "preview_url"
-#define KONACHAN_DOWNLOAD_TYPE_JPEG "jpeg_url"
+#define KONACHAN_DOWNLOAD_TYPE_FILE    "file_url"
+#define KONACHAN_DOWNLOAD_TYPE_JPEG    "jpeg_url"
