@@ -3,20 +3,16 @@
 Download images from Konachan.com
 
 # Insall
-If you are using [Homebrew Cask](http://caskroom.io/)
-
-```sh
-$ brew cask install konachan
-```
-
-Or
-
 Download from [releases](https://github.com/yaqinking/Konachan/releases) page
 
 ## Usage
 ![Konachan](/Konachan.jpg)
 
     Download pictures are saved to ~/Downloads/
+
+When download complete, the `Page Number` will automatically plus one.
+
+I suggest to keep `Page Size` under `15`(In order to avoid `Reqest time out` take place >_<)
 
 Name | Explain
 --- | ---
