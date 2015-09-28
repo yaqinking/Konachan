@@ -35,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F41A8B4D1BB95E80005B78B8 /* Konachan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Konachan.entitlements; sourceTree = "<group>"; };
 		F4C4538B1AECCC3A00E9D353 /* Konachan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Konachan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C4538F1AECCC3A00E9D353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4C453901AECCC3A00E9D353 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		F4C4538D1AECCC3A00E9D353 /* Konachan */ = {
 			isa = PBXGroup;
 			children = (
+				F41A8B4D1BB95E80005B78B8 /* Konachan.entitlements */,
 				F4C453B11AECCFFD00E9D353 /* KonachanAPI.h */,
 				F4C453951AECCC3A00E9D353 /* ViewController.h */,
 				F4C453961AECCC3A00E9D353 /* ViewController.m */,
@@ -223,6 +225,12 @@
 				TargetAttributes = {
 					F4C4538A1AECCC3A00E9D353 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2RX98WKS48;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					F4C453A01AECCC3A00E9D353 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -401,6 +409,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Konachan/Konachan.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Konachan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -412,6 +422,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Konachan/Konachan.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Konachan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
